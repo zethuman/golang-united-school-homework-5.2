@@ -35,7 +35,7 @@ func (receiver *Cache) Put(key, value string) {
 }
 
 func (receiver Cache) Keys() []string {
-	keys := make([]string, len(receiver.db))
+	keys := make([]string, 0)
 
 	for k := range receiver.db {
 		if !receiver.db[k].deadline.IsZero() && receiver.db[k].deadline.Before(time.Now()) {
